@@ -3,7 +3,7 @@ import socket
 class gustpsr:
     def __init__(self, host) -> None:
         self.host = host
-
+        
     def scan(self):
         openedports = []
         closedports = []
