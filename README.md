@@ -1,1 +1,1 @@
-GUST (General use socket tool) is a project created to practice and learn more about networking and cyber secutiy. As of right now the only feature this project has is port scanning but I do plan to add other features like sending TCP/UDP packages.
+GUST (General use socket tool) is a project created to practice and learn more about networking and cyber secutiy. 
