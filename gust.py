@@ -11,24 +11,24 @@ def print_banner(text):
     print(ascii_banner)
 
 def handle_keyboard_interrupt():
-    print("\n Exiting Program !!!!")
+    print('\n Exiting Program !!!!')
     sys.exit()
 
 def handle_hostname_resolution_error():
-    print("\n Hostname Could Not Be Resolved !!!!")
+    print('\n Hostname Could Not Be Resolved !!!!')
     sys.exit()
 
 def handle_server_not_responding_error():
-    print("\ Server not responding !!!!")
+    print('\ Server not responding !!!!')
     sys.exit()
 
 def perform_port_scan(target):
     try:
-        print_banner("PORT SCANNER")
-        print("-" * 50)
-        print("Scanning Target: " + target)
-        print("Scanning started at:" + str(datetime.now()))
-        print("-" * 50)
+        print_banner('PORT SCANNER')
+        print('-' * 50)
+        print('Scanning Target: ' + target)
+        print('Scanning started at:' + str(datetime.now()))
+        print('-' * 50)
         gust.portscanner.gustpsr(target).scan()
     except KeyboardInterrupt:
         handle_keyboard_interrupt()
@@ -39,11 +39,11 @@ def perform_port_scan(target):
 
 def perform_tcp_client(target, port):
     try:
-        print_banner("TCP CLIENT")
-        print("-" * 50)
-        print(f"Connecting to: {target} on port: {port}")
-        print("Connection time:" + str(datetime.now()))
-        print("-" * 50)
+        print_banner('TCP CLIENT')
+        print('-' * 50)
+        print(f'Connecting to: {target} on port: {port}')
+        print('Connection time:' + str(datetime.now()))
+        print('-' * 50)
         gust.tcpclient.gusttcpclient(target, port).tcpclient()
     except KeyboardInterrupt:
         handle_keyboard_interrupt()
@@ -54,11 +54,11 @@ def perform_tcp_client(target, port):
 
 def perform_tcp_server(target, port):
     try:
-        print_banner("TCP SERVER")
-        print("-" * 50)
-        print(f"Starting server: {target} on port: {port}")
-        print("Start time:" + str(datetime.now()))
-        print("-" * 50)
+        print_banner('TCP SERVER')
+        print('-' * 50)
+        print(f'Starting server: {target} on port: {port}')
+        print('Start time:' + str(datetime.now()))
+        print('-' * 50)
         gust.tcpserver.gusttcpserver(target, port).tcpserver()
     except KeyboardInterrupt:
         handle_keyboard_interrupt()
@@ -66,7 +66,7 @@ def perform_tcp_server(target, port):
         handle_hostname_resolution_error()
     except socket.error:
         handle_server_not_responding_error()
-if __name__ == "__main__":
+if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='GENERAL USE SOCKET TOOL',
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -91,4 +91,4 @@ if __name__ == "__main__":
         target = socket.gethostbyname(args.tcpserver)
         perform_tcp_server(target, args.port)
     else:
-        print("Invalid command!")
+        print('Invalid command!')
